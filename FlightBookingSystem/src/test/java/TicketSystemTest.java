@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TicketSystemTest {
@@ -7,17 +10,19 @@ public class TicketSystemTest {
     Passenger testPassenger;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         ticketSystem = new TicketSystem();
     }
 
     /*
         ASSUMPTIONS:
-            We are assuming that there is a BuyTicketResult class that acts as the return type of buyTicket().
+            Assuming that there is a BuyTicketResult class that acts as the return type of buyTicket().
             It contains a Boolean variable and the ticket object.
             If the ticket purchase is valid, the bool variable is set to true and a ticket object is saved and stored.
-            We are assuming that there is a getter method called getPassenger() to return the passenger details.
-            We are assuming that the buyTicket() returns BuyTicketResult object
+            Assuming that there is a getter method called getPassenger() to return the passenger details.
+            Assuming that the buyTicket() returns BuyTicketResult object.
+            Assuming that chooseTicket() returns an ArrayList<Ticket>. Here an ArrayList is used to store multiple
+            Ticket objects.
 
         CLASS DEFINITION: BuyTicketResult
 
@@ -46,7 +51,7 @@ public class TicketSystemTest {
             If the Ticket is valid, the ticket will be purchased and the ticket object will be created and returned.
      */
     @Test
-    void testValidBuyTicket() throws Exception {
+    public void testValidBuyTicket() throws Exception {
         //  Assuming ticket with ID 1111 exists and is available.
         int ticketId = 1111;
         BuyTicketResult result = ticketSystem.buyTicket(ticketId);
@@ -60,7 +65,7 @@ public class TicketSystemTest {
             If the Ticket is invalid, the ticket will be not purchased and the ticket object will return Null.
      */
     @Test
-    void testInvalidBuyTicket() throws Exception {
+    public void testInvalidBuyTicket() throws Exception {
         // Assuming there is no ticket with ID 2222.
         int ticketId = 2222;
         BuyTicketResult result = ticketSystem.buyTicket(ticketId);
@@ -74,7 +79,7 @@ public class TicketSystemTest {
             If the Ticket is already purchased, the ticket object will not be created and returns NULL.
      */
     @Test
-    void testBuyTicketAlreadyPurchased() throws Exception {
+    public void testBuyTicketAlreadyPurchased() throws Exception {
         // Assuming the ticket with id:3333 exists and already purchased
         int ticketId = 3333;
         BuyTicketResult result = ticketSystem.buyTicket(ticketId);
@@ -88,7 +93,7 @@ public class TicketSystemTest {
             If the Ticket is valid but no seats are available the ticket object will be created without seat allocation.
      */
     @Test
-    void testBuyTicketNoSeatsAvailable() throws Exception {
+    public void testBuyTicketNoSeatsAvailable() throws Exception {
         // Assuming that there are no seats left but the ticket with id:4444 can be purchased by a passenger.
         int ticketId = 4444;
         BuyTicketResult result = ticketSystem.buyTicket(ticketId);
@@ -96,5 +101,45 @@ public class TicketSystemTest {
         assertNotNull(result.getTicket());
     }
 
+    /*
+        Test Case 5:
+            The purpose of this test case is to use chooseTicket() to find direct flights between two
+            cities (Melbourne and Sydney). If there is a direct flight, the chooseTicket() will return an
+            ArrayList<Ticket> containing that particular single ticket object.
+    */
+    @Test
+    public void testDirectFlightChooseTicket() throws Exception {
+        String city1 = "Melbourne";
+        String city2 = "Sydney";
+        ArrayList<Ticket> chosenTickets = ticketSystem.chooseTicket(city1, city2);
+        assertEquals(1, chosenTickets.size());
+    }
 
+    /*
+        Test Case 6:
+            The purpose of this test case is to use chooseTicket() to find flights between two
+            cities (Melbourne and Sydney). Assuming that there is no direct flight, the chooseTicket() will return
+            an ArrayList<Ticket> containing that particular set of ticket objects.
+    */
+    @Test
+    public void testConnectionFlightChooseTicket() throws Exception {
+        String city1 = "Melbourne";
+        String city2 = "Sydney";
+        ArrayList<Ticket> chosenTickets = ticketSystem.chooseTicket(city1, city2);
+        assertEquals(2, chosenTickets.size());
+    }
+
+    /*
+        Test Case 7:
+            The purpose of this test case is to use chooseTicket() to find direct flights between two
+            cities (Melbourne and Sydney). If there are no flights, the chooseTicket() will return an
+            empty ArrayList<Ticket>.
+    */
+    @Test
+    public void testNoAvailableFlightChooseTicket() throws Exception {
+        String city1 = "Melbourne";
+        String city2 = "Sydney";
+        ArrayList<Ticket> chosenTickets = ticketSystem.chooseTicket(city1, city2);
+        assertEquals(0, chosenTickets.size());
+    }
 }
