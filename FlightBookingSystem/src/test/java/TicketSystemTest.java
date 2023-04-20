@@ -129,7 +129,7 @@ public class TicketSystemTest {
         assertEquals(2, chosenTickets.size());
     }
 
-    // This is a test to check the gitlab repo update -Jason
+    // This is a test to check the gitlab repo update -Ashik
 
     /*
         Test Case 7:
