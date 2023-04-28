@@ -10,11 +10,12 @@ public class Ticket
     public Ticket(int ticket_id,int price, Flight flight, boolean classVip, Passenger passenger)
     {
         this.ticket_id=ticket_id;
-        this.price = price;
         this.flight = flight;
         this.classVip = classVip;
         this.status = false;
         this.passenger=passenger;
+//        setPrice(price);
+        this.price = applyTaxAndDiscount(price, passenger.getAge());
     }
 
     public Ticket() {
@@ -33,22 +34,42 @@ public class Ticket
 
     public void setPrice(int price)
     {
-        this.price = price;
-        saleByAge(passenger.getAge()); //changes price of the ticket according to the age category of passenger
-        serviceTax( ); //changes price by adding service tax to the ticket
+        int discountedPrice;
+        discountedPrice = applyTaxAndDiscount(price, passenger.getAge());
+        this.price = discountedPrice;
+//        saleByAge(passenger.getAge()); //changes price of the ticket according to the age category of passenger
+//        serviceTax( ); //changes price by adding service tax to the ticket
     }
 
-    public void saleByAge(int age)
-    {
-        int price = getPrice();
-        if(age < 15)
-        {
-            price-=(int)price*0.5;//50% sale for children under 15
-            this.price=price;
+//    public void saleByAge(int age)
+//    {
+//        int price = getPrice();
+//        if(age < 15)
+//        {
+//            price-=(int)price*0.5;//50% sale for children under 15
+//            this.price=price;
+//
+//        } else if(age>=60){
+//            this.price=0; //100% sale for elder people
+//        }
+//    }
 
-        } else if(age>=60){
-            this.price=0; //100% sale for elder people
+    public int applyTaxAndDiscount(int price, int age) {
+        int discountedPrice = price;
+        if(age < 15) {
+            discountedPrice -= (int)(price * 0.5); // 50% discount for passenger aged under 15.
         }
+        else if(age >= 60) {
+            discountedPrice = 0; // full discount.
+        }
+        discountedPrice = applyServiceTax(discountedPrice);
+        return discountedPrice;
+    }
+
+    public int applyServiceTax(int price) {
+        int priceAfterTax;
+        priceAfterTax = (int) (price * 1.12);
+        return priceAfterTax;
     }
 
     public Flight getFlight() {
@@ -77,9 +98,9 @@ public class Ticket
         this.status = status;
     }
 
-    public void serviceTax(){
-        this.price *= 1.12;
-    } //12% service tax
+//    public void serviceTax(){
+//        this.price *= 1.12;
+//    } //12% service tax
 
     public Passenger getPassenger() {
         return passenger;
