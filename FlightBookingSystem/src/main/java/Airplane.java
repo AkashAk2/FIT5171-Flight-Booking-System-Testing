@@ -35,6 +35,7 @@ public class Airplane {
     }
 
     public void setBusinessSitsNumber(int businessSitsNumber) {
+
         this.businessSitsNumber = businessSitsNumber;
     }
 
@@ -43,6 +44,7 @@ public class Airplane {
     }
 
     public void setEconomySitsNumber(int economSitsNumber) {
+
         this.economySitsNumber = economSitsNumber;
     }
 
