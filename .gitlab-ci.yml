@@ -16,9 +16,9 @@ cache:
 build:
   stage: build
   script:
-    - mvn clean -f path/to/pom.xml
+    - mvn clean -f FlightBookingSystem/pom.xml
 
 test:
   stage: test
   script:
-    - mvn test -f path/to/pom.xml
+    - mvn test -f FlightBookingSystem/pom.xml
