@@ -1,4 +1,7 @@
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
+
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AirplaneTest {
@@ -34,7 +37,12 @@ public class AirplaneTest {
     @Test
     public void testSetInvalidSeatNumber() {
         Airplane airplane = new Airplane(1, "Boeing 737", 20, 200, 10);
-        assertThrows(IllegalArgumentException.class, () -> airplane.setEconomySitsNumber(350));
+        assertThrows(IllegalArgumentException.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                airplane.setEconomySitsNumber(350);
+            }
+        });
     }
-
 }
+

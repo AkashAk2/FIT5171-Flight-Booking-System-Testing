@@ -45,7 +45,13 @@ public class Airplane {
 
     public void setEconomySitsNumber(int economSitsNumber) {
 
+        if (economSitsNumber <= 0 || economSitsNumber > 300) {
+            throw new IllegalArgumentException("Invalid economy seat number: " + economSitsNumber);
+        }
+        // Set the economy seat number if it's valid
         this.economySitsNumber = economSitsNumber;
+
+
     }
 
     public int getCrewSitsNumber() {
