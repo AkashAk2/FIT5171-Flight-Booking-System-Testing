@@ -15,6 +15,7 @@ public class Flight {
 
     public Flight(int flight_id, String departTo, String departFrom, String code, String company, Timestamp dateFrom,Timestamp dateTo, Airplane airplane)
     {
+
         this.flightID=flight_id;
         this.departTo = departTo;
         this.departFrom = departFrom;
@@ -24,6 +25,7 @@ public class Flight {
         this.dateTo = dateTo;
         this.dateFrom = dateFrom;
     }
+
 
     public int getFlightID() {
         return flightID;

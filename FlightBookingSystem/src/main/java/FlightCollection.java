@@ -10,8 +10,19 @@ public class FlightCollection {
     }
 
     // Add flights to the ArrayList
-    public static void addFlights(ArrayList<Flight> flights) {
-        FlightCollection.flights.addAll(flights);
+    public static void addFlights(ArrayList<Flight> flightsToAdd) {
+        for (Flight flightToAdd : flightsToAdd) {
+            boolean duplicate = false;
+            for (Flight existingFlight : flights) {
+                if (existingFlight.getFlightID() == flightToAdd.getFlightID()) {
+                    duplicate = true;
+                    break;
+                }
+            }
+            if (!duplicate) {
+                flights.add(flightToAdd);
+            }
+        }
     }
 
     // Get the flight information for a direct flight from city1 to city2
