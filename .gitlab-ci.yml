@@ -8,3 +8,4 @@ build:
   stage: build
   script:
     - mvn clean
+    
