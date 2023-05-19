@@ -33,7 +33,7 @@ public class TicketCollection {
     public static ArrayList<Ticket> getAllTickets() {
         ArrayList<Ticket> availableTickets = new ArrayList<>();
         for (Ticket ticket : tickets) {
-            if (!ticket.getticketStatus()) { // Only add available tickets
+            if (!ticket.getTicketStatus()) { // Only add available tickets
                 availableTickets.add(ticket);
             }
         }

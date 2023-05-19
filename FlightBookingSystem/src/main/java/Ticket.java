@@ -7,19 +7,28 @@ public class Ticket
     private boolean status; //indicates status of ticket: if it is bought by someone or not
     Passenger passenger;
 
-    public Ticket(int ticket_id,int price, Flight flight, boolean classVip, Passenger passenger)
-    {
-        this.ticket_id=ticket_id;
+    /**
+     * Default constructor.
+     */
+    public Ticket() {
+    }
+
+    /**
+     * Constructor with parameters.
+     *
+     * @param ticket_id  The ticket ID
+     * @param price      The price of the ticket
+     * @param flight     The flight associated with the ticket
+     * @param classVip   Indicates if the ticket is for business class or not
+     * @param passenger  The passenger associated with the ticket
+     */
+    public Ticket(int ticket_id, int price, Flight flight, boolean classVip, Passenger passenger) {
+        this.ticket_id = ticket_id;
+        this.price = price;
         this.flight = flight;
         this.classVip = classVip;
         this.status = false;
-        this.passenger=passenger;
-//        setPrice(price);
-        this.price = applyTaxAndDiscount(price, passenger.getAge());
-    }
-
-    public Ticket() {
-
+        this.passenger = passenger;
     }
 
     public int getTicket_id() {
@@ -34,6 +43,9 @@ public class Ticket
 
     public void setPrice(int price)
     {
+        if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be negative");
+        }
         int discountedPrice;
         discountedPrice = applyTaxAndDiscount(price, passenger.getAge());
         this.price = discountedPrice;
@@ -78,14 +90,14 @@ public class Ticket
         return status;
     }
 
+    public boolean getTicketStatus() {
+        return status;
+    }
+
     public void setTicketStatus(boolean status)
     {
         this.status = status;
     }
-
-//    public void serviceTax(){
-//        this.price *= 1.12;
-//    } //12% service tax
 
     public Passenger getPassenger() {
         return passenger;
