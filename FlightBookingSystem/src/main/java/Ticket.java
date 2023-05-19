@@ -37,22 +37,7 @@ public class Ticket
         int discountedPrice;
         discountedPrice = applyTaxAndDiscount(price, passenger.getAge());
         this.price = discountedPrice;
-//        saleByAge(passenger.getAge()); //changes price of the ticket according to the age category of passenger
-//        serviceTax( ); //changes price by adding service tax to the ticket
     }
-
-//    public void saleByAge(int age)
-//    {
-//        int price = getPrice();
-//        if(age < 15)
-//        {
-//            price-=(int)price*0.5;//50% sale for children under 15
-//            this.price=price;
-//
-//        } else if(age>=60){
-//            this.price=0; //100% sale for elder people
-//        }
-//    }
 
     public int applyTaxAndDiscount(int price, int age) {
         int discountedPrice = price;
