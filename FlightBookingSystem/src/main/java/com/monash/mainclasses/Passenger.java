@@ -57,25 +57,8 @@ public class Passenger extends Person
         this.email = email;
     }
 
-    @Override
-    public String getFirstName() {
-        return super.getFirstName();
-    }
 
-    @Override
-    public String getSecondName() {
-        return super.getSecondName();
-    }
 
-    @Override
-    public void setSecondName(String secondName) {
-        super.setSecondName(secondName);
-    }
-
-    @Override
-    public void setFirstName(String firstName) {
-        super.setFirstName(firstName);
-    }
 
     /**
      * Returns the passport details.
@@ -84,11 +67,6 @@ public class Passenger extends Person
      */
     public String getPassport() {
         return passport;
-    }
-
-    @Override
-    public void setGender(String gender) {
-        super.setGender(gender);
     }
 
     /**
@@ -136,10 +114,6 @@ public class Passenger extends Person
         this.securityCode = securityCode;
     }
 
-    @Override
-    public void setAge(int age) {
-        super.setAge(age);
-    }
 
     /**
      * Sets the passport number.
@@ -148,16 +122,12 @@ public class Passenger extends Person
      */
     public void setPassport(String passport) {
         // Passport less than 10 characters
-        if (!(passport.length() < 10)) {
+        if (passport.length() >= 10) {
             throw new IllegalArgumentException("Passport is not in the right format");
         }
         this.passport = passport;
     }
 
-    @Override
-    public String getGender() {
-        return super.getGender();
-    }
 
     /**
      * Sets the phone number.
@@ -166,7 +136,7 @@ public class Passenger extends Person
      */
     public void setPhoneNumber(String phoneNumber) {
         // pattern for Australian phone number
-        boolean phoneFollowsPattern = phoneNumber.matches("^(\\+?61|0) ?4 ?[0-9]{2}([ -]?[0-9]{3}){2}$");
+        boolean phoneFollowsPattern = phoneNumber.matches("^(\\+?61|0) ?4 ?\\d{2}([ -]?\\d{3}){2}$");
 
         if (!phoneFollowsPattern) {
             throw new IllegalArgumentException("Phone must begin with +61 or 04 or 05 and followed by 8 digits");
@@ -175,10 +145,6 @@ public class Passenger extends Person
         this.phoneNumber = phoneNumber;
     }
 
-    @Override
-    public int getAge() {
-        return super.getAge();
-    }
 
     @Override
     public String toString()
