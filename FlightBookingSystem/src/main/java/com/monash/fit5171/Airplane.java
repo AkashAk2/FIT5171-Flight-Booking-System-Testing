@@ -172,10 +172,10 @@ public class Airplane {
     /**
      * Retrieves an com.monash.fit5171.Airplane object from the airplaneData map based on the airplane_id.
      *
-     * @param airplane_id The airplane ID to search for
+     * @param airplaneId The airplane ID to search for
      * @return The com.monash.fit5171.Airplane object if found, or null if not found
      */
-    public static Airplane getAirPlaneInfo(int airplane_id) {
-        return airplaneData.get(airplane_id);
+    public static Airplane getAirPlaneInfo(int airplaneId) {
+        return airplaneData.get(airplaneId);
     }
 }
