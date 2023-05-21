@@ -1,6 +1,7 @@
 package com.monash.mainclasses;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents a collection of com.monash.fit5171.Flight objects.
@@ -10,14 +11,15 @@ public class FlightCollection {
     /**
      * A list of com.monash.fit5171.Flight objects.
      */
-    public static ArrayList<Flight> flights = new ArrayList<>();
+    protected static final List<Flight> flights = new ArrayList<>();
+
 
     /**
      * Returns the list of flights.
      *
      * @return An ArrayList of com.monash.fit5171.Flight objects
      */
-    public static ArrayList<Flight> getFlights() {
+    public static List<Flight> getFlights() {
         return flights;
     }
     /**
@@ -26,7 +28,7 @@ public class FlightCollection {
      * @param flights The list of com.monash.fit5171.Flight objects to be added
      * @throws IllegalArgumentException if departTo or departFrom is null for any flight in the list
      */
-    public void addFlights(ArrayList<Flight> flights) {
+    public void addFlights(List<Flight> flights) {
         for (Flight flight : flights) {
             // You can add validation checks here, for example:
             if (flight.getDepartTo() == null || flight.getDepartFrom() == null) {
@@ -76,12 +78,12 @@ public class FlightCollection {
     /**
      * Retrieves flight information for a flight with a specific flight ID.
      *
-     * @param flight_id The flight ID
+     * @param flightId The flight ID
      * @return The com.monash.fit5171.Flight object for the flight or null if not found
      */
-    public static Flight getFlightInfo(int flight_id) {
+    public static Flight getFlightInfo(int flightId) {
         for (Flight flight : flights) {
-            if (flight.getFlightID() == flight_id) {
+            if (flight.getFlightID() == flightId) {
                 return flight;
             }
         }
