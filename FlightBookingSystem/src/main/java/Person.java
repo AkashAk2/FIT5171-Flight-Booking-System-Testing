@@ -1,7 +1,7 @@
 /**
  * Represents a person with their personal information.
  */
-public abstract class Person //abstract class Person
+public class Person //abstract class Person
 {
     private String firstName;
     private String secondName;

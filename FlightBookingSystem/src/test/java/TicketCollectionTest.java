@@ -5,49 +5,75 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TicketCollectionTest {
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import static org.mockito.Mockito.*;
 
-    public Flight mockFlight;
-    public Passenger mockPassenger;
-    public Ticket mockTicket;
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
+public class TicketCollectionTest {
+
+    Flight flight;
+    Passenger passenger;
 
     @BeforeEach
-    void setUp() {
-        mockFlight = new Flight(); // Create a mock Flight object
-        mockPassenger = new Passenger(); // Create a mock Passenger object
-        mockTicket = new Ticket(1, 1000, mockFlight, true, mockPassenger); // Create a mock Ticket object
+    public void setUp() {
+        flight = Mockito.mock(Flight.class);
+        passenger = Mockito.mock(Passenger.class);
+        TicketCollection.tickets = new ArrayList<>();
     }
-
-    @BeforeEach
-    void cleanTicketCollection() {
-        TicketCollection.getTickets().clear();
-    }
-
 
     @Test
-    void testAddTickets() {
-        System.out.println("TicketCollection size before adding tickets: " + TicketCollection.getTickets().size());
-        TicketCollection.addTickets(new ArrayList<>());
-        assertTrue(TicketCollection.getTickets().isEmpty());
+    public void testAddTicket_validTicket_success() {
+        // Prepare data
+        TicketCollection ticketCollection = new TicketCollection();
+        Ticket ticket = new Ticket(1, 1000, flight, false, passenger);
+        ArrayList<Ticket> ticketList = new ArrayList<>();
+        ticketList.add(ticket);
 
-        ArrayList<Ticket> ticketsToAdd = new ArrayList<>();
-        ticketsToAdd.add(mockTicket);
-        TicketCollection.addTickets(ticketsToAdd);
-        System.out.println("TicketCollection size after adding tickets: " + TicketCollection.getTickets().size());
-        assertFalse(TicketCollection.getTickets().isEmpty());
-        assertEquals(1, TicketCollection.getTickets().size());
-        assertEquals(mockTicket, TicketCollection.getTickets().get(0));
+        // Add ticket to collection
+        TicketCollection.addTickets(ticketList);
+
+        // Verify the ticket was added
+        assertEquals(ticket, ticketCollection.getTicketInfo(1));
     }
 
+    @Test
+    public void testGetTicketInfo_validTicketId_success() {
+        // Prepare data
+        Ticket ticket1 = new Ticket(1, 1000, flight, false, passenger);
+        Ticket ticket2 = new Ticket(2, 2000, flight, true, passenger);
+        ArrayList<Ticket> ticketList = new ArrayList<>();
+        ticketList.add(ticket1);
+        ticketList.add(ticket2);
+
+        TicketCollection ticketCollection = new TicketCollection();
+        // Add tickets to collection
+        TicketCollection.addTickets(ticketList);
+
+        // Get ticket by id
+        Ticket fetchedTicket = ticketCollection.getTicketInfo(2);
+
+        // Verify the correct ticket is returned
+        assertEquals(ticket2, fetchedTicket);
+    }
 
     @Test
-    void testGetTicketInfo() {
-        assertNull(TicketCollection.getTicketInfo(1));
+    public void testGetTicketInfo_invalidTicketId_null() {
+        // Prepare data
+        Ticket ticket = new Ticket(1, 1000, flight, false, passenger);
+        ArrayList<Ticket> ticketList = new ArrayList<>();
+        ticketList.add(ticket);
+        TicketCollection ticketCollection = new TicketCollection();
+        // Add ticket to collection
+        TicketCollection.addTickets(ticketList);
 
-        ArrayList<Ticket> ticketsToAdd = new ArrayList<>();
-        ticketsToAdd.add(mockTicket);
-        TicketCollection.addTickets(ticketsToAdd);
-        assertNotNull(TicketCollection.getTicketInfo(1));
-        assertEquals(mockTicket, TicketCollection.getTicketInfo(1));
+        // Get ticket by id
+        Ticket fetchedTicket = ticketCollection.getTicketInfo(999);
+
+        // Verify null is returned for invalid id
+        assertNull(fetchedTicket);
     }
 }

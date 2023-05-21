@@ -1,43 +1,46 @@
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
-import java.util.Set;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+class PersonTest {
+    @Test
+    public void testPersonFields() {
+        // Test with missing fields
+        assertThrows(IllegalArgumentException.class, () -> new Person(null, "Gomez", 25, "Man"));
+        assertThrows(IllegalArgumentException.class, () -> new Person("Roy", null , 25, "Man"));
+        assertThrows(IllegalArgumentException.class, () -> new Person("Roy", "Gomez", -1, "Man"));
+        assertThrows(IllegalArgumentException.class, () -> new Person("Roy", "Gomez", 25, null));
 
-public class PersonTest {
-    private Passenger passenger;
-
-    @BeforeEach
-    public void setUp(){
-        passenger = new Passenger("John", "Wick", 19, "Man", "johnwick@gmail.com", "0412345678", "A123456789", "1234123412341234", 123);
+        // Testing with all fields present
+        Person person = new Person("John", "Smith", 25, "Man");
+        assertNotNull(person);
     }
 
     @Test
-    public void testPersonAllFields() {
-        assertEquals("John", passenger.getFirstName());
-        assertEquals("Wick", passenger.getSecondName());
-        assertEquals(19, passenger.getAge());
-        assertEquals("Man", passenger.getGender());
+    public void testPersonGender() {
+        Person person = new Person();
+
+        // Testing with incorrect input
+        assertThrows(IllegalArgumentException.class, () -> person.setGender("M"));
+
+        // Testing with correct input
+        person.setGender("Man");
+        assertEquals("Man", person.getGender());
     }
 
     @Test
-    public void testValidGender() {
-        Set<String> validGenders = new HashSet<>();
-        validGenders.add("Woman");
-        validGenders.add("Man");
-        validGenders.add("Non-binary|gender diverse");
-        validGenders.add("Prefer not to say");
-        validGenders.add("Other");
+    public void testNames() {
+        Person person = new Person();
 
-        assertTrue(validGenders.contains(passenger.getGender()));
-    }
+        //Testing with non-alphabetic input
+        assertThrows(IllegalArgumentException.class, () -> person.setFirstName("123"));
+        assertThrows(IllegalArgumentException.class, () -> person.setSecondName("123"));
 
-    @Test
-    public void testFirstNameAndLastName() {
-        assertTrue(passenger.getFirstName().matches("^[a-zA-Z]*$"));
-        assertTrue(passenger.getSecondName().matches("^[a-zA-Z]*$"));
+        // Testing with alphabetic input
+        person.setFirstName("John");
+        person.setSecondName("Smith");
+
+        assertEquals("John", person.getFirstName());
+        assertEquals("Smith", person.getSecondName());
     }
 }

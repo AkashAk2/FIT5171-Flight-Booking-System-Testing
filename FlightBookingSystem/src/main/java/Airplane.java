@@ -145,10 +145,10 @@ public class Airplane {
     public String toString()
     {
         return "Airplane{" +
-                "model=" + getAirplaneModel() + '\'' +
-                ", business sits=" + getBusinessSitsNumber() + '\'' +
-                ", economy sits=" + getEconomySitsNumber() + '\'' +
-                ", crew sits=" + getCrewSitsNumber() + '\'' +
+                "model=" + getAirplaneModel() +
+                ", business sits=" + getBusinessSitsNumber() +
+                ", economy sits=" + getEconomySitsNumber() +
+                ", crew sits=" + getCrewSitsNumber() +
                 '}';
     }
 

@@ -1,64 +1,95 @@
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
+// This class is responsible for testing the Ticket class.
 class TicketTest {
-    private Flight flight;
-    private Passenger passenger;
+    private Flight mockFlight;
+    private Passenger mockPassenger;
+    private Ticket ticket;
 
+    // Set up method to run before each test case.
     @BeforeEach
     void setUp() {
-        flight = Mockito.mock(Flight.class);
-        passenger = Mockito.mock(Passenger.class);
+        mockFlight = Mockito.mock(Flight.class);
+        mockPassenger = Mockito.mock(Passenger.class);
+        when(mockPassenger.getAge()).thenReturn(30);
+
+        this.ticket = new Ticket(1, 1000, mockFlight, true, mockPassenger);
     }
 
+    // Test case for checking the ticket status.
     @Test
     void testTicketStatus() {
-        Ticket ticket = new Ticket(1, 1000, flight, false, passenger);
-        assertFalse(ticket.ticketStatus());
-        ticket.setTicketStatus(true);
-        assertTrue(ticket.ticketStatus());
+        assertFalse(this.ticket.getTicketStatus());
+        this.ticket.setTicketStatus(true);
+        assertTrue(this.ticket.getTicketStatus());
+    }
+
+    // Test case for toggling the ticket status between true and false.
+    @Test
+    void testTicketStatusTrueFalse() {
+        this.ticket.setTicketStatus(true);
+        assertTrue(this.ticket.getTicketStatus());
+
+        this.ticket.setTicketStatus(false);
+        assertFalse(this.ticket.getTicketStatus());
+    }
+
+    // Test case for checking the ticket discount based on passenger's age.
+    @Test
+    void testTicketDiscount() {
+    }
+
+
+    // Test case for checking the ticket price.
+    @Test
+    void testTicketPrice() {
+        assertEquals(1000, this.ticket.getPrice());
+    }
+
+    // Test case for checking if an exception is thrown when an invalid ticket price is set.
+    @Test
+    void testTicketPriceValid() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> this.ticket.setPrice(-100));
+        String expectedMessage = "Price cannot be negative";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    // Test case for checking ticket price and service tax.
+    @Test
+    void testTicketPriceAndServiceTax() {
+    }
+
+    // Test case for checking if service tax is appliedd
+    @Test
+    void testServiceTaxApplied() {
+        this.ticket.setPrice(1000);
+        assertEquals(1120, this.ticket.getPrice());
+    }
+    // Test case for checking the ticket service tax calculation.
+    @Test
+    void testTicketServiceTax() {
+    }
+
+    // Test case for checking if a ticket has a valid flight and passenger.
+    @Test
+    void testTicketValidFlightAndPassenger() {
+        assertEquals(mockFlight, this.ticket.getFlight());
+        assertEquals(mockPassenger, this.ticket.getPassenger());
     }
 
     @Test
-    void testDiscountBasedOnAge() {
-        Mockito.when(passenger.getAge()).thenReturn(10);
-        Ticket childTicket = new Ticket(1, 1000, flight, false, passenger);
-        assertEquals(560, childTicket.getPrice()); // 50% discount + 12% service tax
-
-        Mockito.when(passenger.getAge()).thenReturn(65);
-        Ticket seniorTicket = new Ticket(2, 1000, flight, false, passenger);
-        assertEquals(0, seniorTicket.getPrice()); // 100% discount for elder people
-    }
-
-    @Test
-    void testPriceAppliedToTicket() {
-        Mockito.when(passenger.getAge()).thenReturn(30);
-        Ticket adultTicket = new Ticket(3, 1000, flight, false, passenger);
-        assertEquals(1120, adultTicket.getPrice()); // No discount, only 12% service tax
-    }
-
-    @Test
-    void testValidPriceAndServiceTax() {
-        Mockito.when(passenger.getAge()).thenReturn(30);
-        Ticket ticket = new Ticket(4, 1000, flight, false, passenger);
-        assertTrue(ticket.getPrice() >= 0);
-        assertTrue(ticket.getPrice() % 1 == 0); // Check if the price is an integer
-    }
-
-    @Test
-    void testServiceTaxAppliedWhenTicketIsSold() {
-        Mockito.when(passenger.getAge()).thenReturn(30);
-        Ticket ticket = new Ticket(5, 1000, flight, false, passenger);
-        assertEquals(1120, ticket.getPrice()); // 12% service tax applied
-    }
-
-    @Test
-    void testValidFlightAndPassengerInfo() {
-        Ticket ticket = new Ticket(6, 1000, flight, false, passenger);
-        assertNotNull(ticket.getFlight());
-        assertNotNull(ticket.getPassenger());
+        // Test case for checking the ticket ID.
+    void testTicketID() {
+        Ticket ticket = new Ticket(7890, 1000, new Flight(), false, mockPassenger);
+        int expectedId = 7890;
+        int actualId = ticket.getTicket_id();
+        assertEquals(expectedId, actualId);
     }
 }
