@@ -2,7 +2,7 @@ package com.monash.mainclasses;
 
 public class Ticket
 {
-    private int ticket_id;
+    private int ticketId;
     private int price;
     Flight flight;
     private boolean classVip; //indicates if this is bussiness class ticket or not
@@ -18,14 +18,14 @@ public class Ticket
     /**
      * Constructor with parameters.
      *
-     * @param ticket_id  The ticket ID
+     * @param ticketId  The ticket ID
      * @param price      The price of the ticket
      * @param flight     The flight associated with the ticket
      * @param classVip   Indicates if the ticket is for business class or not
      * @param passenger  The passenger associated with the ticket
      */
-    public Ticket(int ticket_id, int price, Flight flight, boolean classVip, Passenger passenger) {
-        this.ticket_id = ticket_id;
+    public Ticket(int ticketId, int price, Flight flight, boolean classVip, Passenger passenger) {
+        this.ticketId = ticketId;
         this.price = price;
         this.flight = flight;
         this.classVip = classVip;
@@ -33,12 +33,12 @@ public class Ticket
         this.passenger = passenger;
     }
 
-    public int getTicket_id() {
-        return ticket_id;
+    public int ticketId() {
+        return ticketId;
     }
 
-    public void setTicket_id(int ticket_id) {
-        this.ticket_id = ticket_id;
+    public void setTicketId(int ticketId) {
+        this.ticketId = ticketId;
     }
 
     public int getPrice() { return price; }

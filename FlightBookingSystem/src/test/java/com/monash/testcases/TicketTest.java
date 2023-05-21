@@ -94,7 +94,7 @@ class TicketTest {
     void testTicketID() {
         Ticket ticket = new Ticket(7890, 1000, new Flight(), false, mockPassenger);
         int expectedId = 7890;
-        int actualId = ticket.getTicket_id();
+        int actualId = ticket.ticketId();
         assertEquals(expectedId, actualId);
     }
 }

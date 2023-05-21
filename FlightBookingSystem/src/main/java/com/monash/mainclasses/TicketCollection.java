@@ -50,7 +50,7 @@ public class TicketCollection {
      */
     public Ticket getTicketInfo(int ticket_id) {
         for (Ticket ticket : tickets) {
-            if (ticket.getTicket_id() == ticket_id) {
+            if (ticket.ticketId() == ticket_id) {
                 return ticket;
             }
         }
