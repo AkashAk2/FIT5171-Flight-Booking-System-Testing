@@ -86,7 +86,7 @@ public class TicketSystem {
 
             this.buyTicket(ticket_id);
         } else {
-            Flight depart_to = newFlightCollection.getFlightInfo(city2);
+            Flight depart_to = FlightCollection.getFlightInfo(city2);
 
             if (depart_to != null) {
                 String connectCity = depart_to.getDepartFrom();
@@ -114,8 +114,7 @@ public class TicketSystem {
      */
     public void showTicket() {
         try {
-            logger.info("You have bought a ticket for flight " + ticket.flight.getDepartFrom() + " - " + ticket.flight.getDepartTo() + "\n\nDetails:");
-            logger.info(this.ticket.toString());
+            logger.info("You have bought a ticket for flight " + ticket.flight.getDepartFrom() + " - " + ticket.flight.getDepartTo());
         } catch (NullPointerException e) {
             return;
         }
@@ -139,9 +138,9 @@ public class TicketSystem {
      * @param ticket_id The ID of the ticket to purchase
      * @throws Exception If the ticket is already booked
      */
-    public void buyTicket(int ticket_id) throws Exception {
+    public void buyTicket(int ticket_id) throws IllegalArgumentException {
         if (isTicketBooked(ticket_id)) {
-            throw new Exception("This ticket is already booked.");
+            throw new IllegalArgumentException("Invalid ticket ID: " + ticket_id);
         }
 
         Ticket validTicket = ticketCollection.getTicketInfo(ticket_id);
@@ -172,7 +171,7 @@ public class TicketSystem {
      * @param ticket_id_second The ID of the second ticket for the second flight
      * @throws Exception If any of the tickets are already booked
      */
-    public void buyTicket(int ticket_id_first, int ticket_id_second) throws Exception {
+    public void buyTicket(int ticket_id_first, int ticket_id_second) throws IllegalArgumentException {
 
         Ticket validTicketfirst = ticketCollection.getTicketInfo(ticket_id_first);
         Ticket validTicketSecond = ticketCollection.getTicketInfo(ticket_id_second);
@@ -180,8 +179,7 @@ public class TicketSystem {
         logger.info("Processing...");
 
         if (validTicketfirst == null || validTicketSecond == null) {
-            logger.info("This ticket does not exist.");
-            return;
+            throw new IllegalArgumentException("This ticket does not exist:" + ticket_id_first + "," + ticket_id_second);
         }
         getInputForPassengerDetails();
 

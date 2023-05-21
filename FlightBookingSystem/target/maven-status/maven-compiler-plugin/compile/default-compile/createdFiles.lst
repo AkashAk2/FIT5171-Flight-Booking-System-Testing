@@ -1,8 +1,8 @@
-com/monash/mainclasses/Airplane.class
-com/monash/mainclasses/TicketCollection.class
-com/monash/mainclasses/Ticket.class
-com/monash/mainclasses/Passenger.class
-com/monash/mainclasses/Flight.class
-com/monash/mainclasses/Person.class
-com/monash/mainclasses/TicketSystem.class
-com/monash/mainclasses/FlightCollection.class
+com\monash\mainclasses\Passenger.class
+com\monash\mainclasses\Person.class
+com\monash\mainclasses\Ticket.class
+com\monash\mainclasses\FlightCollection.class
+com\monash\mainclasses\Flight.class
+com\monash\mainclasses\TicketCollection.class
+com\monash\mainclasses\TicketSystem.class
+com\monash\mainclasses\Airplane.class
