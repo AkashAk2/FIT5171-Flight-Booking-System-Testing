@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="FlightTest" time="0.218" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="FlightTest" time="0.232" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -20,7 +20,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="AU"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11\bin"/>
-    <property name="sun.java.command" value="C:\Users\jdsou\AppData\Local\Temp\surefire8173533347287600009\surefirebooter10037984614904705789.jar C:\Users\jdsou\AppData\Local\Temp\surefire8173533347287600009 2023-05-21T17-45-40_865-jvmRun1 surefire15051064285694755652tmp surefire_012765861123777640051tmp"/>
+    <property name="sun.java.command" value="C:\Users\jdsou\AppData\Local\Temp\surefire16873182691189053584\surefirebooter1423626810853883345.jar C:\Users\jdsou\AppData\Local\Temp\surefire16873182691189053584 2023-05-21T17-54-58_204-jvmRun1 surefire3777608270109867497tmp surefire_02953568668560320950tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\FIT5171\team4\FlightBookingSystem\target\test-classes;C:\FIT5171\team4\FlightBookingSystem\target\classes;C:\Users\jdsou\.m2\repository\org\junit\jupiter\junit-jupiter\5.9.2\junit-jupiter-5.9.2.jar;C:\Users\jdsou\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\jdsou\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\jdsou\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\jdsou\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\jdsou\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\jdsou\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\jdsou\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\jdsou\.m2\repository\org\mockito\mockito-core\5.2.0\mockito-core-5.2.0.jar;C:\Users\jdsou\.m2\repository\net\bytebuddy\byte-buddy\1.14.1\byte-buddy-1.14.1.jar;C:\Users\jdsou\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.1\byte-buddy-agent-1.14.1.jar;C:\Users\jdsou\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\jdsou\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\jdsou\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -36,7 +36,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\jdsou\AppData\Local\Temp\surefire8173533347287600009\surefirebooter10037984614904705789.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\jdsou\AppData\Local\Temp\surefire16873182691189053584\surefirebooter1423626810853883345.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.18+9-LTS-195"/>
@@ -64,11 +64,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testToString" classname="FlightTest" time="0.171"/>
+  <testcase name="testToString" classname="FlightTest" time="0.172"/>
   <testcase name="testDateFormat" classname="FlightTest" time="0"/>
-  <testcase name="testTimeFormat" classname="FlightTest" time="0"/>
+  <testcase name="testTimeFormat" classname="FlightTest" time="0.016"/>
   <testcase name="testUniqueFlight" classname="FlightTest" time="0"/>
-  <testcase name="testUpdateAssignedAirplane" classname="FlightTest" time="0"/>
+  <testcase name="testUpdateAssignedAirplane" classname="FlightTest" time="0.016"/>
   <testcase name="testAssignAirplaneToFlight" classname="FlightTest" time="0"/>
-  <testcase name="testAllFieldsRequired" classname="FlightTest" time="0.015"/>
+  <testcase name="testAllFieldsRequired" classname="FlightTest" time="0.013"/>
 </testsuite>

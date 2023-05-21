@@ -1,6 +1,7 @@
 package com.monash.fit5171;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class TicketSystem {
     FlightCollection flightCollection;
@@ -60,6 +61,9 @@ public class TicketSystem {
         return flight;
     }
 
+    private static final Logger logger = Logger.getLogger(TicketSystem.class.getName());
+
+
     /**
      * Allows a user to choose a ticket based on the departure and arrival cities.
      *
@@ -77,7 +81,7 @@ public class TicketSystem {
         if (directFlight != null) {
             TicketCollection.getAllTickets();
 
-            System.out.println("\nEnter ID of ticket you want to choose:");
+            logger.info("Enter ID of the ticket you want to choose:");
             int ticket_id = in.nextInt();
 
             this.buyTicket(ticket_id);
@@ -90,17 +94,17 @@ public class TicketSystem {
                 Flight flightConnectingTwoCities = newFlightCollection.getFlightInfo(city1, connectCity);
 
                 if (flightConnectingTwoCities != null) {
-                    System.out.println("There is a transfer way to go there.");
+                    logger.info("There is a transfer way to go there.");
 
                     idFirst = depart_to.getFlightID();
                     idSecond = flightConnectingTwoCities.getFlightID();
 
                     this.buyTicket(idFirst, idSecond);
                 } else {
-                    System.out.println("There is no possible variants.");
+                    logger.info("There is no possible variants.");
                 }
             } else {
-                System.out.println("There is no possible variants.");
+                logger.info("There is no possible variants.");
             }
         }
     }
@@ -110,8 +114,8 @@ public class TicketSystem {
      */
     public void showTicket() {
         try {
-            System.out.println("You have bought a ticket for flight " + ticket.flight.getDepartFrom() + " - " + ticket.flight.getDepartTo() + "\n\nDetails:");
-            System.out.println(this.ticket.toString());
+            logger.info("You have bought a ticket for flight " + ticket.flight.getDepartFrom() + " - " + ticket.flight.getDepartTo() + "\n\nDetails:");
+            logger.info(this.ticket.toString());
         } catch (NullPointerException e) {
             return;
         }
@@ -143,7 +147,7 @@ public class TicketSystem {
         Ticket validTicket = ticketCollection.getTicketInfo(ticket_id);
 
         if (validTicket == null) {
-            System.out.println("This ticket does not exist.");
+            logger.info("This ticket does not exist.");
             return;
         }
 
@@ -157,7 +161,7 @@ public class TicketSystem {
 
         processTicketPurchase(validTicket);
 
-        System.out.println("Your bill: " + ticket.getPrice() + "\n");
+        logger.info("Your bill: " + ticket.getPrice() + "\n");
         getInputForCardDetails();
     }
 
@@ -173,10 +177,10 @@ public class TicketSystem {
         Ticket validTicketfirst = ticketCollection.getTicketInfo(ticket_id_first);
         Ticket validTicketSecond = ticketCollection.getTicketInfo(ticket_id_second);
 
-        System.out.println("Processing...");
+        logger.info("Processing...");
 
         if (validTicketfirst == null || validTicketSecond == null) {
-            System.out.println("This ticket does not exist.");
+            logger.info("This ticket does not exist.");
             return;
         }
         getInputForPassengerDetails();
@@ -187,54 +191,54 @@ public class TicketSystem {
         }
 
         processTransferTicketPurchase(validTicketfirst, validTicketSecond);
-        System.out.println("Your bill: " + ticket.getPrice() + "\n");
+        logger.info("Your bill: " + ticket.getPrice() + "\n");
         getInputForCardDetails();
     }
     /**
      * Gets input from the user for passenger details and stores them in the passenger object.
      */
     private void getInputForPassengerDetails() {
-        System.out.println("Enter your First Name: ");
+        logger.info("Enter your First Name: ");
         String firstName = in.nextLine();
         passenger.setFirstName(firstName);
 
-        System.out.println("Enter your Second name:");
+        logger.info("Enter your Second name:");
         String secondName = in.nextLine();
         passenger.setSecondName(secondName);
 
-        System.out.println("Enter your age:");
+        logger.info("Enter your age:");
         int age = in.nextInt();
         in.nextLine();
         passenger.setAge(age);
 
-        System.out.println("Enter your gender: ");
+        logger.info("Enter your gender: ");
         String gender = in.nextLine();
         passenger.setGender(gender);
 
-        System.out.println("Enter your e-mail address");
+        logger.info("Enter your e-mail address");
         String email = in.nextLine();
         passenger.setEmail(email);
 
-        System.out.println("Enter your phone number (+7):");
+        logger.info("Enter your phone number (+7):");
         String phoneNumber = in.nextLine();
         passenger.setPhoneNumber(phoneNumber);
 
-        System.out.println("Enter your passport number:");
+        logger.info("Enter your passport number:");
         String passportNumber = in.nextLine();
         passenger.setPassport(passportNumber);
 
-        System.out.println("Do you want to purchase?\n 1-YES 0-NO");
+        logger.info("Do you want to purchase?\n 1-YES 0-NO");
     }
 
     /**
      * Gets input from the user for card details and stores them in the passenger object.
      */
     private void getInputForCardDetails() {
-        System.out.println("Enter your card number:");
+        logger.info("Enter your card number:");
         String cardNumber = in.nextLine();
         passenger.setCardNumber(cardNumber);
 
-        System.out.println("Enter your security code:");
+        logger.info("Enter your security code:");
         int securityCode = in.nextInt();
         passenger.setSecurityCode(securityCode);
     }
