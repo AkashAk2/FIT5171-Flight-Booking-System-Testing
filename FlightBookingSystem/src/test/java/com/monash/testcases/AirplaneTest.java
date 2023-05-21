@@ -1,4 +1,6 @@
-import com.monash.fit5171.Airplane;
+package com.monash.testcases;
+
+import com.monash.mainclasses.Airplane;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

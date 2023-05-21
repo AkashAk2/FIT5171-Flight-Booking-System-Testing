@@ -1,4 +1,4 @@
-package com.monash.fit5171;
+package com.monash.mainclasses;
 
 /**
  * Represents a person with their personal information.

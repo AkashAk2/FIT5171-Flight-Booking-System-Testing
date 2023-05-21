@@ -1,4 +1,6 @@
-import com.monash.fit5171.*;
+package com.monash.testcases;
+
+import com.monash.mainclasses.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

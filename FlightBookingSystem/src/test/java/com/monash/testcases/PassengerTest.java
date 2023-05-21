@@ -1,5 +1,7 @@
-import com.monash.fit5171.Passenger;
-import com.monash.fit5171.Person;
+package com.monash.testcases;
+
+import com.monash.mainclasses.Passenger;
+import com.monash.mainclasses.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

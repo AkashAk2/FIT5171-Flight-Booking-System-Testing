@@ -1,7 +1,9 @@
-import com.monash.fit5171.Flight;
-import com.monash.fit5171.Passenger;
-import com.monash.fit5171.Ticket;
-import com.monash.fit5171.TicketCollection;
+package com.monash.testcases;
+
+import com.monash.mainclasses.Flight;
+import com.monash.mainclasses.Passenger;
+import com.monash.mainclasses.Ticket;
+import com.monash.mainclasses.TicketCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

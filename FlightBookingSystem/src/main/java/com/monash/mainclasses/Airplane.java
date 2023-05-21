@@ -1,4 +1,4 @@
-package com.monash.fit5171;
+package com.monash.mainclasses;
 
 import java.util.HashMap;
 import java.util.Map;

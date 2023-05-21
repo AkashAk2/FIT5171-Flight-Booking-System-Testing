@@ -1,5 +1,7 @@
-import com.monash.fit5171.Flight;
-import com.monash.fit5171.FlightCollection;
+package com.monash.testcases;
+
+import com.monash.mainclasses.Flight;
+import com.monash.mainclasses.FlightCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

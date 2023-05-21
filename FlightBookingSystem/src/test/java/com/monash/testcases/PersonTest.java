@@ -1,4 +1,6 @@
-import com.monash.fit5171.Person;
+package com.monash.testcases;
+
+import com.monash.mainclasses.Person;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
