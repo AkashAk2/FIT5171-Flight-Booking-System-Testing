@@ -81,6 +81,26 @@
                     <artifactId>maven-project-info-reports-plugin</artifactId>
                     <version>3.0.0</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.pitest</groupId>
+                    <artifactId>pitest-maven</artifactId>
+                    <version>LATEST</version>
+                    <configuration>
+                        <targetClasses>
+                            <param>com.monash.mainclasses.Airplane</param>
+                        </targetClasses>
+                        <targetTests>
+                            <param>com.monash.testcases.AirplaneTest</param>
+                        </targetTests>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.pitest</groupId>
+                            <artifactId>pitest-junit5-plugin</artifactId>
+                            <version>1.2.0</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
