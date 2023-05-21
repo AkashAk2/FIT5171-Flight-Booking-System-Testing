@@ -87,10 +87,10 @@
                     <version>LATEST</version>
                     <configuration>
                         <targetClasses>
-                            <param>com.monash.mainclasses.Airplane</param>
+                            <param>com.monash.mainclasses.*</param>
                         </targetClasses>
                         <targetTests>
-                            <param>com.monash.testcases.AirplaneTest</param>
+                            <param>com.monash.testcases.*</param>
                         </targetTests>
                     </configuration>
                 </plugin>

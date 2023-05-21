@@ -1,6 +1,6 @@
 projectKey=FlightBookingSystem
-serverUrl=http://localhost:9002
+serverUrl=http://localhost:9000
 serverVersion=10.0.0.68432
-dashboardUrl=http://localhost:9002/dashboard?id=FlightBookingSystem
-ceTaskId=AYg9TkNuiV6H7HbGzb70
-ceTaskUrl=http://localhost:9002/api/ce/task?id=AYg9TkNuiV6H7HbGzb70
+dashboardUrl=http://localhost:9000/dashboard?id=FlightBookingSystem
+ceTaskId=AYg9kXt9Ld8lnRh14rA-
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYg9kXt9Ld8lnRh14rA-
