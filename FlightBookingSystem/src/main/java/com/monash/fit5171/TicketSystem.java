@@ -1,9 +1,5 @@
-import java.sql.*;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
-import java.util.ArrayList;
+package com.monash.fit5171;
+
 import java.util.Scanner;
 
 public class TicketSystem {
@@ -15,7 +11,7 @@ public class TicketSystem {
     Scanner in = new Scanner(System.in);
 
     /**
-     * Default constructor for the TicketSystem class.
+     * Default constructor for the com.monash.fit5171.TicketSystem class.
      */
     public TicketSystem() {
         passenger = new Passenger();
@@ -25,9 +21,9 @@ public class TicketSystem {
     }
 
     /**
-     * Constructor for the TicketSystem class with FlightCollection parameter.
+     * Constructor for the com.monash.fit5171.TicketSystem class with com.monash.fit5171.FlightCollection parameter.
      *
-     * @param flightCollection The FlightCollection object for this TicketSystem
+     * @param flightCollection The com.monash.fit5171.FlightCollection object for this com.monash.fit5171.TicketSystem
      */
     public TicketSystem(FlightCollection flightCollection) {
         this.passenger = new Passenger();
@@ -38,10 +34,10 @@ public class TicketSystem {
     }
 
     /**
-     * Constructor for the TicketSystem class with FlightCollection and TicketCollection parameters.
+     * Constructor for the com.monash.fit5171.TicketSystem class with com.monash.fit5171.FlightCollection and com.monash.fit5171.TicketCollection parameters.
      *
-     * @param flightCollection The FlightCollection object for this TicketSystem
-     * @param ticketCollection The TicketCollection object for this TicketSystem
+     * @param flightCollection The com.monash.fit5171.FlightCollection object for this com.monash.fit5171.TicketSystem
+     * @param ticketCollection The com.monash.fit5171.TicketCollection object for this com.monash.fit5171.TicketSystem
      */
     public TicketSystem(FlightCollection flightCollection, TicketCollection ticketCollection) {
         this.passenger = new Passenger();

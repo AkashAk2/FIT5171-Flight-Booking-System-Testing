@@ -1,3 +1,5 @@
+package com.monash.fit5171;
+
 /**
  * Represents a passenger with personal and contact information.
  */
@@ -175,7 +177,7 @@ public class Passenger extends Person
     @Override
     public String toString()
     {
-        return "Passenger{" + " Fullname= "+ super.getFirstName()+" "+super.getSecondName()+
+        return "com.monash.fit5171.Passenger{" + " Fullname= "+ super.getFirstName()+" "+super.getSecondName()+
                 " ,email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", passport='" + passport +

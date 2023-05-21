@@ -1,3 +1,5 @@
+import com.monash.fit5171.Passenger;
+import com.monash.fit5171.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

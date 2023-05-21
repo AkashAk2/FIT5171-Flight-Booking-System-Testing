@@ -1,14 +1,15 @@
+import com.monash.fit5171.Airplane;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// This class is responsible for testing the Airplane class.
+// This class is responsible for testing the com.monash.fit5171.Airplane class.
 class AirplaneTest {
-    // Declare an Airplane instance to be used in test cases.
+    // Declare an com.monash.fit5171.Airplane instance to be used in test cases.
     private Airplane airplane;
-    // Set up the Airplane instance before each test case.
+    // Set up the com.monash.fit5171.Airplane instance before each test case.
     @BeforeEach
     public void setUp() {
         // Initialize the airplane object with example data.
@@ -20,7 +21,7 @@ class AirplaneTest {
                 10);
     }
 
-    // Test if the getters and setters of the Airplane class work as expected.
+    // Test if the getters and setters of the com.monash.fit5171.Airplane class work as expected.
     @Test
     void testAirplaneAttributes() {
         // Test getters
@@ -67,10 +68,10 @@ class AirplaneTest {
         assertTrue(airplane.getEconomySitsNumber() >= 1 && airplane.getEconomySitsNumber() <= 300);
         assertTrue(airplane.getCrewSitsNumber() >= 1 && airplane.getCrewSitsNumber() <= 300);
     }
-    // Test if the toString method of the Airplane class returns the correct string representation.
+    // Test if the toString method of the com.monash.fit5171.Airplane class returns the correct string representation.
     @Test
     public void testToString() {
-        String expectedString = "Airplane{model=Boeing 737, business sits=30, economy sits=150, crew sits=10}";
+        String expectedString = "com.monash.fit5171.Airplane{model=Boeing 737, business sits=30, economy sits=150, crew sits=10}";
 
         // Call the toString method of the airplane object
         String actualString = airplane.toString();

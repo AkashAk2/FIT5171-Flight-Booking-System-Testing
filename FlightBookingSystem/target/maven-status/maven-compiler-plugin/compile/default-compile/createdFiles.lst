@@ -1,8 +1,8 @@
-Airplane.class
-Ticket.class
-Flight.class
-Passenger.class
-FlightCollection.class
-TicketCollection.class
-Person.class
-TicketSystem.class
+com\monash\fit5171\Flight.class
+com\monash\fit5171\FlightCollection.class
+com\monash\fit5171\TicketCollection.class
+com\monash\fit5171\TicketSystem.class
+com\monash\fit5171\Airplane.class
+com\monash\fit5171\Passenger.class
+com\monash\fit5171\Ticket.class
+com\monash\fit5171\Person.class

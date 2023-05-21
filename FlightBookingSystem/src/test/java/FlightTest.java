@@ -1,12 +1,13 @@
+import com.monash.fit5171.Airplane;
+import com.monash.fit5171.Flight;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
-// This class is responsible for testing the Flight class.
+// This class is responsible for testing the com.monash.fit5171.Flight class.
 public class FlightTest {
     private Airplane mockAirplane;
     private Flight flight1;
@@ -67,13 +68,13 @@ public class FlightTest {
         Assertions.assertNotEquals(flight1, flight2);
     }
 
-    // Test the toString() method of the Flight class.
+    // Test the toString() method of the com.monash.fit5171.Flight class.
     @Test
     public void testToString() {
 
         Flight flight = new Flight(1, "Melbourne", "Sydney", "QF400", "Qantas", "29/04/23", "12:00:00", "30/04/23", "14:00:00", mockAirplane);
 
-        String expectedString = "Flight{" +
+        String expectedString = "com.monash.fit5171.Flight{" +
                 "flightID=1" +
                 ", departTo='Melbourne'" +
                 ", departFrom='Sydney'" +

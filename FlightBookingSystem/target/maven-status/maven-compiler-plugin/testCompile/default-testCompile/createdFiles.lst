@@ -2,8 +2,8 @@ TicketSystemTest$1.class
 PassengerTest.class
 FlightCollectionTest.class
 TicketSystemTest.class
-PersonTest.class
 AirplaneTest.class
+PersonTest.class
 FlightTest.class
 TicketTest.class
 TicketCollectionTest.class

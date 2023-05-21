@@ -1,15 +1,11 @@
+import com.monash.fit5171.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import org.mockito.MockedStatic;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-// This class is responsible for testing the TicketSystem class.
+// This class is responsible for testing the com.monash.fit5171.TicketSystem class.
 public class TicketSystemTest {
 
     private FlightCollection flightCollection;

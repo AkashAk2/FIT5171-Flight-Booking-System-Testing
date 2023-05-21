@@ -1,3 +1,5 @@
+package com.monash.fit5171;
+
 public class Ticket
 {
     private int ticket_id;
@@ -109,9 +111,9 @@ public class Ticket
 
     public String toString()
     {
-        return"Ticket{" +'\n'+
+        return"com.monash.fit5171.Ticket{" +'\n'+
                 "Price=" + getPrice() + "KZT, " + '\n' +
                 getFlight() +'\n'+ "Vip status=" + getClassVip() + '\n' +
-                getPassenger()+'\n'+ "Ticket was purchased=" + ticketStatus() + "\n}";
+                getPassenger()+'\n'+ "com.monash.fit5171.Ticket was purchased=" + ticketStatus() + "\n}";
     }
 }

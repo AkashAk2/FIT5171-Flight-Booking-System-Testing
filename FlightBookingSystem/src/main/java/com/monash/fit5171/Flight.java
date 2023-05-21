@@ -1,5 +1,5 @@
-import java.sql.Timestamp;
-import java.util.Calendar;
+package com.monash.fit5171;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -74,7 +74,7 @@ public class Flight {
      */
     public void setFlightID(int flightID) {
         if (flightID <= 0) {
-            throw new IllegalArgumentException("Flight ID must be greater than 0.");
+            throw new IllegalArgumentException("com.monash.fit5171.Flight ID must be greater than 0.");
         }
         this.flightID = flightID;
     }
@@ -113,7 +113,7 @@ public class Flight {
      */
     public void setCode(String code) {
         if (code == null || code.isEmpty()) {
-            throw new IllegalArgumentException("Flight code must be non-empty.");
+            throw new IllegalArgumentException("com.monash.fit5171.Flight code must be non-empty.");
         }
         this.code = code;
     }
@@ -176,14 +176,14 @@ public class Flight {
     }
 
     /**
-     * Sets the associated Airplane object.
+     * Sets the associated com.monash.fit5171.Airplane object.
      *
-     * @param airplane The Airplane object to set
+     * @param airplane The com.monash.fit5171.Airplane object to set
      * @throws IllegalArgumentException if the airplane is null
      */
     public void setAirplane(Airplane airplane) {
         if (airplane == null) {
-            throw new IllegalArgumentException("Airplane must not be null.");
+            throw new IllegalArgumentException("com.monash.fit5171.Airplane must not be null.");
         }
         this.airplane = airplane;
     }
@@ -232,7 +232,7 @@ public class Flight {
 
     public String toString()
     {
-        return "Flight{" +
+        return "com.monash.fit5171.Flight{" +
                 "flightID=" + flightID +
                 ", departTo='" + departTo + '\'' +
                 ", departFrom='" + departFrom + '\'' +

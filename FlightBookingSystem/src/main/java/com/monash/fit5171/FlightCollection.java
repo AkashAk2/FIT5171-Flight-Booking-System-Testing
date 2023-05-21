@@ -1,19 +1,21 @@
+package com.monash.fit5171;
+
 import java.util.ArrayList;
 
 /**
- * Represents a collection of Flight objects.
+ * Represents a collection of com.monash.fit5171.Flight objects.
  */
 public class FlightCollection {
 
     /**
-     * A list of Flight objects.
+     * A list of com.monash.fit5171.Flight objects.
      */
     public static ArrayList<Flight> flights = new ArrayList<>();
 
     /**
      * Returns the list of flights.
      *
-     * @return An ArrayList of Flight objects
+     * @return An ArrayList of com.monash.fit5171.Flight objects
      */
     public static ArrayList<Flight> getFlights() {
         return flights;
@@ -21,7 +23,7 @@ public class FlightCollection {
     /**
      * Adds a list of flights to the collection.
      *
-     * @param flights The list of Flight objects to be added
+     * @param flights The list of com.monash.fit5171.Flight objects to be added
      * @throws IllegalArgumentException if departTo or departFrom is null for any flight in the list
      */
     public void addFlights(ArrayList<Flight> flights) {
@@ -39,7 +41,7 @@ public class FlightCollection {
      *
      * @param city1 The departure city
      * @param city2 The destination city
-     * @return The Flight object for the direct flight or null if no direct flight is found
+     * @return The com.monash.fit5171.Flight object for the direct flight or null if no direct flight is found
      * @throws IllegalArgumentException if city1 or city2 is null or empty
      */
     public Flight getFlightInfo(String city1, String city2) {
@@ -59,7 +61,7 @@ public class FlightCollection {
      * Retrieves flight information for a flight departing to a specific city.
      *
      * @param city The departure city
-     * @return The Flight object for the flight or null if not found
+     * @return The com.monash.fit5171.Flight object for the flight or null if not found
      */
     public static Flight getFlightInfo(String city) {
         for (Flight flight : flights) {
@@ -75,7 +77,7 @@ public class FlightCollection {
      * Retrieves flight information for a flight with a specific flight ID.
      *
      * @param flight_id The flight ID
-     * @return The Flight object for the flight or null if not found
+     * @return The com.monash.fit5171.Flight object for the flight or null if not found
      */
     public static Flight getFlightInfo(int flight_id) {
         for (Flight flight : flights) {

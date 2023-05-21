@@ -1,3 +1,5 @@
+import com.monash.fit5171.Flight;
+import com.monash.fit5171.FlightCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -7,7 +9,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// This class is responsible for testing the FlightCollection class.
+// This class is responsible for testing the com.monash.fit5171.FlightCollection class.
 class FlightCollectionTest {
 
 
@@ -79,7 +81,7 @@ class FlightCollectionTest {
 
         Flight result = flightCollection.getFlightInfo("New York", "Los Angeles");
 
-        // Requirement 1: Flight ID should be a positive integer
+        // Requirement 1: com.monash.fit5171.Flight ID should be a positive integer
         assertTrue(result.getFlightID() > 0);
 
         // Requirement 2: departTo and departFrom city names should be non-empty and not equal to each other
@@ -118,11 +120,11 @@ class FlightCollectionTest {
 
         Flight result = flightCollection.getFlightInfo("New York", "Los Angeles");
 
-        assertNotNull(result, "Flight information should not be null.");
-        assertEquals(mockFlight.getFlightID(), result.getFlightID(), "Flight IDs should match.");
+        assertNotNull(result, "com.monash.fit5171.Flight information should not be null.");
+        assertEquals(mockFlight.getFlightID(), result.getFlightID(), "com.monash.fit5171.Flight IDs should match.");
         assertEquals(mockFlight.getDepartTo(), result.getDepartTo(), "Departure cities should match.");
         assertEquals(mockFlight.getDepartFrom(), result.getDepartFrom(), "Destination cities should match.");
-        assertEquals(mockFlight.getCode(), result.getCode(), "Flight codes should match.");
+        assertEquals(mockFlight.getCode(), result.getCode(), "com.monash.fit5171.Flight codes should match.");
         assertEquals(mockFlight.getCompany(), result.getCompany(), "Airline companies should match.");
         assertEquals(mockFlight.getDateFrom(), result.getDateFrom(), "Departure dates should match.");
         assertEquals(mockFlight.getDateTo(), result.getDateTo(), "Arrival dates should match.");

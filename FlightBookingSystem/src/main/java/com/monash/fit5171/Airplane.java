@@ -1,8 +1,10 @@
+package com.monash.fit5171;
+
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Represents an Airplane with airplane ID, model, and seating information.
+ * Represents an com.monash.fit5171.Airplane with airplane ID, model, and seating information.
  */
 public class Airplane {
     private int airplaneID;
@@ -14,7 +16,7 @@ public class Airplane {
 
 
     /**
-     * Constructs an Airplane with the specified attributes.
+     * Constructs an com.monash.fit5171.Airplane with the specified attributes.
      *
      * @param airplaneID         Unique identifier for the airplane
      * @param airplaneModel      Model of the airplane
@@ -69,7 +71,7 @@ public class Airplane {
 
     public void setAirplaneModel(String airplaneModel) {
         if (airplaneModel == null) {
-            throw new IllegalArgumentException("Airplane model cannot be null");
+            throw new IllegalArgumentException("com.monash.fit5171.Airplane model cannot be null");
         }
         else {
             this.airplaneModel = airplaneModel;
@@ -138,13 +140,13 @@ public class Airplane {
     }
 
     /**
-     * Returns a string representation of the Airplane object.
+     * Returns a string representation of the com.monash.fit5171.Airplane object.
      *
-     * @return A string representation of the Airplane object
+     * @return A string representation of the com.monash.fit5171.Airplane object
      */
     public String toString()
     {
-        return "Airplane{" +
+        return "com.monash.fit5171.Airplane{" +
                 "model=" + getAirplaneModel() +
                 ", business sits=" + getBusinessSitsNumber() +
                 ", economy sits=" + getEconomySitsNumber() +
@@ -153,14 +155,14 @@ public class Airplane {
     }
 
     /**
-     * Adds an Airplane to the static airplaneData map.
+     * Adds an com.monash.fit5171.Airplane to the static airplaneData map.
      *
-     * @param airplane The Airplane object to add
+     * @param airplane The com.monash.fit5171.Airplane object to add
      * @throws IllegalArgumentException if airplane is null
      */
     public static void addAirplane(Airplane airplane) {
         if (airplane == null) {
-            throw new IllegalArgumentException("Airplane cannot be null");
+            throw new IllegalArgumentException("com.monash.fit5171.Airplane cannot be null");
         }
         else {
             airplaneData.put(airplane.getAirplaneID(), airplane);
@@ -168,10 +170,10 @@ public class Airplane {
     }
 
     /**
-     * Retrieves an Airplane object from the airplaneData map based on the airplane_id.
+     * Retrieves an com.monash.fit5171.Airplane object from the airplaneData map based on the airplane_id.
      *
      * @param airplane_id The airplane ID to search for
-     * @return The Airplane object if found, or null if not found
+     * @return The com.monash.fit5171.Airplane object if found, or null if not found
      */
     public static Airplane getAirPlaneInfo(int airplane_id) {
         return airplaneData.get(airplane_id);

@@ -1,7 +1,9 @@
+package com.monash.fit5171;
+
 /**
  * Represents a person with their personal information.
  */
-public class Person //abstract class Person
+public class Person //abstract class com.monash.fit5171.Person
 {
     private String firstName;
     private String secondName;
@@ -136,7 +138,7 @@ public class Person //abstract class Person
     @Override
     public String toString()
     {
-        return "Person{" +
+        return "com.monash.fit5171.Person{" +
                 "firstName='" + firstName + '\'' +
                 ", secondName='" + secondName + '\'' +
                 ", age=" + age +

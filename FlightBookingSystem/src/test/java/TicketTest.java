@@ -1,3 +1,6 @@
+import com.monash.fit5171.Flight;
+import com.monash.fit5171.Passenger;
+import com.monash.fit5171.Ticket;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mockito;
@@ -5,7 +8,7 @@ import org.mockito.Mockito;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-// This class is responsible for testing the Ticket class.
+// This class is responsible for testing the com.monash.fit5171.Ticket class.
 class TicketTest {
     private Flight mockFlight;
     private Passenger mockPassenger;
