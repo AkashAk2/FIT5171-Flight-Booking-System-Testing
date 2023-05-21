@@ -23,7 +23,7 @@ public class FlightTest {
     @Test
     public void testAllFieldsRequired() {
         // Testing if any of the field is null
-        Assertions.assertNotNull(flight1.getFlightID());
+        Assertions.assertTrue(flight1.getFlightID() > 0);
         Assertions.assertNotNull(flight1.getDepartTo());
         Assertions.assertNotNull(flight1.getDepartFrom());
         Assertions.assertNotNull(flight1.getCode());
