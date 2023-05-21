@@ -93,13 +93,6 @@
                             <param>com.monash.testcases.AirplaneTest</param>
                         </targetTests>
                     </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.pitest</groupId>
-                            <artifactId>pitest-junit5-plugin</artifactId>
-                            <version>1.2.0</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>
