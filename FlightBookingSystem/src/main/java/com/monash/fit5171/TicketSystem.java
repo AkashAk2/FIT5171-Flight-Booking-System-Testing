@@ -71,8 +71,8 @@ public class TicketSystem {
         int idFirst = 0;
         int idSecond = 0;
 
-        FlightCollection flightCollection = new FlightCollection();
-        Flight directFlight = flightCollection.getFlightInfo(city1, city2);
+        FlightCollection newFlightCollection = new FlightCollection();
+        Flight directFlight = newFlightCollection.getFlightInfo(city1, city2);
 
         if (directFlight != null) {
             TicketCollection.getAllTickets();
@@ -82,12 +82,12 @@ public class TicketSystem {
 
             this.buyTicket(ticket_id);
         } else {
-            Flight depart_to = flightCollection.getFlightInfo(city2);
+            Flight depart_to = newFlightCollection.getFlightInfo(city2);
 
             if (depart_to != null) {
                 String connectCity = depart_to.getDepartFrom();
 
-                Flight flightConnectingTwoCities = flightCollection.getFlightInfo(city1, connectCity);
+                Flight flightConnectingTwoCities = newFlightCollection.getFlightInfo(city1, connectCity);
 
                 if (flightConnectingTwoCities != null) {
                     System.out.println("There is a transfer way to go there.");
