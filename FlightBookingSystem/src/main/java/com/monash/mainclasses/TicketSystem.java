@@ -82,21 +82,21 @@ public class TicketSystem {
             TicketCollection.getAllTickets();
 
             logger.info("Enter ID of the ticket you want to choose:");
-            int ticket_id = in.nextInt();
+            int ticketId = in.nextInt();
 
-            this.buyTicket(ticket_id);
+            this.buyTicket(ticketId);
         } else {
-            Flight depart_to = FlightCollection.getFlightInfo(city2);
+            Flight departTo = FlightCollection.getFlightInfo(city2);
 
-            if (depart_to != null) {
-                String connectCity = depart_to.getDepartFrom();
+            if (departTo != null) {
+                String connectCity = departTo.getDepartFrom();
 
                 Flight flightConnectingTwoCities = newFlightCollection.getFlightInfo(city1, connectCity);
 
                 if (flightConnectingTwoCities != null) {
                     logger.info("There is a transfer way to go there.");
 
-                    idFirst = depart_to.getFlightID();
+                    idFirst = departTo.getFlightID();
                     idSecond = flightConnectingTwoCities.getFlightID();
 
                     this.buyTicket(idFirst, idSecond);
@@ -116,34 +116,33 @@ public class TicketSystem {
         try {
             logger.info("You have bought a ticket for flight " + ticket.flight.getDepartFrom() + " - " + ticket.flight.getDepartTo());
         } catch (NullPointerException e) {
-            return;
         }
     }
 
     /**
      * Checks if a ticket is booked.
      *
-     * @param ticket_id The ID of the ticket to check
+     * @param ticketId The ID of the ticket to check
      * @return true if the ticket is booked, false otherwise
      */
-    public boolean isTicketBooked(int ticket_id) {
+    public boolean isTicketBooked(int ticketId) {
 
-        Ticket selectedTicket = ticketCollection.getTicketInfo(ticket_id);
+        Ticket selectedTicket = ticketCollection.getTicketInfo(ticketId);
         return selectedTicket != null && selectedTicket.getPassenger() != null;
     }
 
     /**
      * Buys a ticket with the given ticket ID.
      *
-     * @param ticket_id The ID of the ticket to purchase
+     * @param ticketId The ID of the ticket to purchase
      * @throws Exception If the ticket is already booked
      */
-    public void buyTicket(int ticket_id) throws IllegalArgumentException {
-        if (isTicketBooked(ticket_id)) {
-            throw new IllegalArgumentException("Invalid ticket ID: " + ticket_id);
+    public void buyTicket(int ticketId) throws IllegalArgumentException {
+        if (isTicketBooked(ticketId)) {
+            throw new IllegalArgumentException("Invalid ticket ID: " + ticketId);
         }
 
-        Ticket validTicket = ticketCollection.getTicketInfo(ticket_id);
+        Ticket validTicket = ticketCollection.getTicketInfo(ticketId);
 
         if (validTicket == null) {
             logger.info("This ticket does not exist.");
@@ -167,19 +166,19 @@ public class TicketSystem {
     /**
      * Buys tickets with the given ticket IDs for connecting flights.
      *
-     * @param ticket_id_first  The ID of the first ticket for the first flight
-     * @param ticket_id_second The ID of the second ticket for the second flight
+     * @param ticketIdFirst  The ID of the first ticket for the first flight
+     * @param ticketIdSecond The ID of the second ticket for the second flight
      * @throws Exception If any of the tickets are already booked
      */
-    public void buyTicket(int ticket_id_first, int ticket_id_second) throws IllegalArgumentException {
+    public void buyTicket(int ticketIdFirst, int ticketIdSecond) throws IllegalArgumentException {
 
-        Ticket validTicketfirst = ticketCollection.getTicketInfo(ticket_id_first);
-        Ticket validTicketSecond = ticketCollection.getTicketInfo(ticket_id_second);
+        Ticket validTicketfirst = ticketCollection.getTicketInfo(ticketIdFirst);
+        Ticket validTicketSecond = ticketCollection.getTicketInfo(ticketIdSecond);
 
         logger.info("Processing...");
 
         if (validTicketfirst == null || validTicketSecond == null) {
-            throw new IllegalArgumentException("This ticket does not exist:" + ticket_id_first + "," + ticket_id_second);
+            throw new IllegalArgumentException("This ticket does not exist:" + ticketIdFirst + "," + ticketIdSecond);
         }
         getInputForPassengerDetails();
 
@@ -250,9 +249,9 @@ public class TicketSystem {
         flight = FlightCollection.getFlightInfo(validTicket.getFlight().getFlightID());
 
         assert flight != null;
-        int airplane_id = flight.getAirplane().getAirplaneID();
+        int airplaneId = flight.getAirplane().getAirplaneID();
 
-        Airplane airplane = Airplane.getAirPlaneInfo(airplane_id);
+        Airplane airplane = Airplane.getAirPlaneInfo(airplaneId);
 
         ticket = validTicket;
 
@@ -273,18 +272,18 @@ public class TicketSystem {
      * @param validTicketSecond The second ticket to be processed
      */
     private void processTransferTicketPurchase(Ticket validTicketFirst, Ticket validTicketSecond) {
-        Flight flight_first = FlightCollection.getFlightInfo(validTicketFirst.getFlight().getFlightID());
-        assert flight_first != null;
-        int airplane_id_first = flight_first.getAirplane().getAirplaneID();
-        Airplane airplane_first = Airplane.getAirPlaneInfo(airplane_id_first);
+        Flight flightFirst = FlightCollection.getFlightInfo(validTicketFirst.getFlight().getFlightID());
+        assert flightFirst != null;
+        int airplaneIdFirst = flightFirst.getAirplane().getAirplaneID();
+        Airplane airplaneFirst = Airplane.getAirPlaneInfo(airplaneIdFirst);
 
-        Flight flight_second = FlightCollection.getFlightInfo(validTicketSecond.getFlight().getFlightID());
-        assert flight_second != null;
-        int airplane_id_second = flight_second.getAirplane().getAirplaneID();
-        Airplane airplane_second = Airplane.getAirPlaneInfo(airplane_id_second);
+        Flight flightSecond = FlightCollection.getFlightInfo(validTicketSecond.getFlight().getFlightID());
+        assert flightSecond != null;
+        int airplaneIdSecond = flightSecond.getAirplane().getAirplaneID();
+        Airplane airplaneSecond = Airplane.getAirPlaneInfo(airplaneIdSecond);
 
-        processIndividualTransferTicket(validTicketFirst, airplane_first, flight_first);
-        processIndividualTransferTicket(validTicketSecond, airplane_second, flight_second);
+        processIndividualTransferTicket(validTicketFirst, airplaneFirst, flightFirst);
+        processIndividualTransferTicket(validTicketSecond, airplaneSecond, flightSecond);
 
         ticket.setPrice(validTicketFirst.getPrice() + validTicketSecond.getPrice());
     }
